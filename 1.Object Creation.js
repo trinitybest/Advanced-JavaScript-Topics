@@ -18,6 +18,8 @@ var person2 = peopleFactory('Kim', 27, 'SC');
 person1.printPerson();
 person2.printPerson();
 
+// using prototype
+
 
 
 
