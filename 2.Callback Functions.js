@@ -34,3 +34,22 @@ console.log(calc(2,3, doWhatever));
 console.log(calc(2,3, function(a, b) {
 	return a - b;
 }));
+// Using sort function
+var myArr = [{
+	num:5,
+  str: 'apple'
+}, {
+	num: 7,
+  str: 'cabbage'
+}, {
+	num:1,
+  str: 'ban'
+}]
+
+myArr.sort(function(val1, val2) {
+	if(val1.num > val2.num)
+  	return -1;
+   else
+   	return 1;
+})
+console.log(myArr);
