@@ -1,11 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
 	<script type="text/javascript">
+	function ajax_post_json(){
+		var results = document.getElementById("results");
+		var hr = new XMLHttpRequest();
+		hr.open("GET", "mylist.json", true);
+		hr.setRequestHeader("Content-type", "application/json", true);
+		hr.onreadystatechange = function(){
+			if(hr.readyState == 4 && hr.state ==200){
+				//hr.responseText
+				var data = JSON.parse(hr.responseText);
+				results.innerHTML = data.user;
+			}
+		}
+		hr.send(null);
+		results.innerHTML = "requesting..."; 
+
+	}
 	</script>
 </head>
 <body>
-
+	<div id="results"></div>
+	<script type="text/javascript">ajax_post_json();</script>
 </body>
 </html>
