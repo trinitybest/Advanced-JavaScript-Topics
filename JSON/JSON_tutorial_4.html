@@ -5,8 +5,8 @@
 	function ajax_post_json(){
 		var results = document.getElementById("results");
 		var hr = new XMLHttpRequest();
-		hr.open("GET", "mylist.json", true);
-		hr.setRequestHeader("Content-type", "application/json", true);
+		hr.open("POST", "my_json_list.php", true);
+		hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		hr.onreadystatechange = function(){
 			//console.log("I'm working on it.");
 			if(hr.readyState == 4 && hr.status ==200){
@@ -16,11 +16,12 @@
 				//results.innerHTML = data.u2.user+" is "+data.u2.age+" and lives in "+data.u2.country;
 				results.innerHTML = ''
 				for (var obj in data){
-					results.innerHTML += data[obj].user+" is "+data[obj].age+" and lives in "+data[obj].country + "<hr />"
+					results.innerHTML += "Property A: " + data[obj].propertyA + "<hr />";
+					results.innerHTML += "Property B: " + data[obj].propertyB + "<hr />";
 				}
 			}
 		}
-		hr.send(null);
+		hr.send("var1=bird&var2=bees");
 		results.innerHTML = "requesting..."; 
 
 	}
